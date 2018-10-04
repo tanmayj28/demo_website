@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Guest House</title>
+        <%= render partial: 'inc-script' %>
+    </head>
+    <body>
+      <div itemscope="" itemtype="http://schema.org/Hotel">
+        <%= render partial: 'inc-hotelschema' %>
+      <%= render partial: 'inc-header' %>
+      <div class="inner-content">
+        <a href="javascript:void(0)" class="search-again" data-toggle="modal" data-target="#myModal">SEARCH AGAIN</a>
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button> -->
+        <div class="container search_result">
+          <h1>Based on your search, we<br />
+have these beautiful rooms for you.</h1>
+            <p class="left-rooms">We’re left with 12 rooms</p>
+          <div class="clearfix"></div>
+        </div>
+        <div class="grid-item" itemscope="" itemtype="http://schema.org/Room">
+          <div class="row no-gutters">
+            <div class="col-12 col-lg-6 room-margin push-lg-6">
+              <div class="room-slider" id="room-slider1">
+                <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+              </div>
+              <div class="room-slider-thumb">
+                <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6 room-margin room-details pull-lg-6">
+              <div class="room-content">
+                <div class="col-12 col-lg-10 offset-lg-2">
+                  <h2 itemprop="name">Single Deluxe Room 1 <span>Room for maximum 2 people</span></h2>
+                  <p class="price">Rs. 2,000<span>/night</span></p>
+                  <p itemprop="description">Based at Udaipur, India, Hotel Hanuman Ghat surely provides it’s patrons a pleasure filled experience. We are well equipped unit boasting more than 20 rooms for the customers based across the globe. The is truly alluring for the travellers. </p>
+                  <a href="booking-details" itemprop="url">BOOK NOW <img src="/assets/know-more-arrrow.svg" alt=""></a>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item" itemscope="" itemtype="http://schema.org/Room">
+          <div class="row no-gutters">
+            <div class="col-12 col-lg-6 room-margin">
+              <div class="room-slider"  id="room-slider2">
+                <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+              </div>
+              <div class="room-slider-thumb">
+                <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6 room-margin room-details">
+              <div class="room-content">
+                <div class="col-12 col-lg-10 text-left">
+                  <h2 itemprop="name">Single Deluxe Room 1 <span>Room for maximum 2 people</span></h2>
+                  <p class="price">Rs. 2,000<span>/night</span></p>
+                  <p itemprop="description">Based at Udaipur, India, Hotel Hanuman Ghat surely provides it’s patrons a pleasure filled experience. We are well equipped unit boasting more than 20 rooms for the customers based across the globe. The is truly alluring for the travellers. </p>
+                  <a href="booking-details" itemprop="url">BOOK NOW <img src="/assets/know-more-arrrow.svg" alt=""></a>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item" itemscope="" itemtype="http://schema.org/Room">
+          <div class="row no-gutters">
+            <div class="col-12 col-lg-6 room-margin push-lg-6">
+              <div class="room-slider" id="room-slider1">
+                <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+              </div>
+              <div class="room-slider-thumb">
+                <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6 room-margin room-details pull-lg-6">
+              <div class="room-content">
+                <div class="col-12 col-lg-10 offset-lg-2">
+                  <h2 itemprop="name">Single Deluxe Room 1 <span>Room for maximum 2 people</span></h2>
+                  <p class="price">Rs. 2,000<span>/night</span></p>
+                  <p itemprop="description">Based at Udaipur, India, Hotel Hanuman Ghat surely provides it’s patrons a pleasure filled experience. We are well equipped unit boasting more than 20 rooms for the customers based across the globe. The is truly alluring for the travellers. </p>
+                  <a href="booking-details" itemprop="url">BOOK NOW <img src="/assets/know-more-arrrow.svg" alt=""></a>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Booking</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <%= render partial: 'inc-booking' %>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      <%= render partial: 'inc-testimonials' %>
+      <%= render partial: 'inc-blog' %>
+      <%= render partial: 'inc-footer' %>
+      </div>
+      <%= render partial: 'booking-widget-scripts-search-result' %>
+    </body>
+</html>

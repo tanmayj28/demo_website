@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Guest House</title>
+        <%= render partial: 'inc-script' %>
+    </head>
+    <body class="body-padding">
+      <div itemscope="" itemtype="http://schema.org/Hotel">
+        <%= render partial: 'inc-hotelschema' %>
+      <%= render partial: 'inc-header' %>
+      <!-- <div class="aboutbanner">
+        <div class="container">
+          <div class="banner-text">
+            Luxury space<br />
+            you can afford
+          </div>
+          <div class="desktop-booking">
+
+          </div>
+        </div>
+      </div> -->
+      <div class="roomdetailbanner">
+        <div class="owl-carousel banner-slider">
+          <div class="banner-image" itemscope itemtype="http://schema.org/ImageObject">
+            <img src="/assets/room-details-banner.jpg" alt="Hotel Banner Picture" itemprop="contentUrl url" />
+          </div>
+          <div class="banner-image" itemscope itemtype="http://schema.org/ImageObject">
+            <img src="/assets/room-details-banner.jpg" alt="Hotel Banner Picture" itemprop="contentUrl url" />
+          </div>
+          <div class="banner-image" itemscope itemtype="http://schema.org/ImageObject">
+            <img src="/assets/room-details-banner.jpg" alt="Hotel Banner Picture" itemprop="contentUrl url" />
+          </div>
+        </div>
+        <div class="container">
+          <div class="banner-text">
+            <h1>Luxury space<br />
+            you can afford</h1>
+          </div>
+          <div class="desktop-booking">
+            <%= render partial: 'inc-booking-room-details' %>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-booking">
+        <%= render partial: 'inc-booking' %>
+      </div>
+      <section class="container-fluid rooms-details-about-intro">
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <div class="row">
+              <div class="col-12 col-lg-10 offset-lg-2">
+                <h3>SINGLE DELUXE ROOM 1</h3>
+                <h2>Description </h2>
+                <p class="price">Rs. 2000/-</p>
+                <p itemprop="description">Based at Udaipur, India, Hotel Hanuman Ghat surely provides it’s patrons a pleasure filled experience. We are well equipped unit boasting more than 20 rooms for the customers based across the globe. The budget hotel in Udaipur is positioned at the amazing destination which is truly alluring for the travellers. </p>
+                <h4>Amenities</h4>
+
+                <div class="amenities-main">
+                  <div class="row amenities">
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"></path>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"></path>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"></path>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"></path>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"></path>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"></path>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"></path>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"></path>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6 about-slider-main">
+            <div class="row">
+              <div class="col-12 col-lg-10 offset-lg-2">
+                <div class="about-slider-home">
+                  <div><img src="/assets/about-slider1.jpg" alt="Room Picture" /></div>
+                  <div><img src="/assets/about-slider1.jpg" alt="Room Picture" /></div>
+                  <div><img src="/assets/about-slider1.jpg" alt="Room Picture" /></div>
+                </div>
+                <div class="about-slider-home-thumb">
+                  <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                  <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                  <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="white-section">
+        <div class="container">
+          <h3>FAVORITE ROOMS</h3>
+          <h2>Other related rooms</h2>
+        </div>
+        <div class="grid-main">
+          <div class="grid">
+            <div class="grid-item double-bed">
+              <div class="row no-gutters" itemscope="" itemtype="http://schema.org/Room">
+                <div class="col-12 col-lg-6 room-margin push-lg-6">
+                  <div class="room-slider" id="room-slider1">
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                  </div>
+                  <div class="room-slider-thumb">
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6 room-margin room-details pull-lg-6">
+                  <div class="room-content">
+                    <div class="col-12 col-lg-10 offset-lg-2">
+                      <h2 itemprop="name">Single Deluxe Room 1 <span>Room for maximum 2 people</span></h2>
+                      <p class="price">Rs. 2,000<span>/night</span></p>
+                      <p itemprop="description">Based at Udaipur, India, Hotel Hanuman Ghat surely provides it’s patrons a pleasure filled experience. We are well equipped unit boasting more than 20 rooms for the customers based across the globe. The is truly alluring for the travellers. </p>
+                      <a href="#" itemprop="url">SHOW DETAILS <img src="/assets/know-more-arrrow.svg" alt=""></a>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="grid-item tripple-bed">
+              <div class="row no-gutters" itemscope="" itemtype="http://schema.org/Room">
+                <div class="col-12 col-lg-6 room-margin">
+                  <div class="room-slider"  id="room-slider2">
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                  </div>
+                  <div class="room-slider-thumb">
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6 room-margin room-details">
+                  <div class="room-content">
+                    <div class="col-12 col-lg-10 text-left">
+                      <h2 itemprop="name">Single Deluxe Room 1 <span>Room for maximum 2 people</span></h2>
+                      <p class="price">Rs. 2,000<span>/night</span></p>
+                      <p itemprop="description">Based at Udaipur, India, Hotel Hanuman Ghat surely provides it’s patrons a pleasure filled experience. We are well equipped unit boasting more than 20 rooms for the customers based across the globe. The is truly alluring for the travellers. </p>
+                      <a href="#" itemprop="url">SHOW DETAILS <img src="/assets/know-more-arrrow.svg" alt=""></a>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="grid-item single-bed">
+              <div class="row no-gutters" itemscope="" itemtype="http://schema.org/Room">
+                <div class="col-12 col-lg-6 room-margin push-lg-6">
+                  <div class="room-slider" id="room-slider1">
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                  </div>
+                  <div class="room-slider-thumb">
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6 room-margin room-details pull-lg-6">
+                  <div class="room-content">
+                    <div class="col-12 col-lg-10 offset-lg-2">
+                      <h2 itemprop="name">Single Deluxe Room 1 <span>Room for maximum 2 people</span></h2>
+                      <p class="price">Rs. 2,000<span>/night</span></p>
+                      <p itemprop="description">Based at Udaipur, India, Hotel Hanuman Ghat surely provides it’s patrons a pleasure filled experience. We are well equipped unit boasting more than 20 rooms for the customers based across the globe. The is truly alluring for the travellers. </p>
+                      <a href="#" itemprop="url">SHOW DETAILS <img src="/assets/know-more-arrrow.svg" alt=""></a>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </section>
+      <div class="clearfix"></div>
+      <%= render partial: 'inc-footer' %>
+      </div>
+      <%= render partial: 'booking-widget-scripts' %>
+    </body>
+</html>

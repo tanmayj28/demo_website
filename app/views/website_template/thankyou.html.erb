@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Guest House</title>
+        <%= render partial: 'inc-script' %>
+    </head>
+    <body>
+      <div itemscope="" itemtype="http://schema.org/Hotel">
+        <%= render partial: 'inc-hotelschema' %>
+      <%= render partial: 'inc-header' %>
+      <div class="inner-content">
+        <div class="container thankyou">
+          <div class="row">
+            <div class="col-12 col-lg-6 thankyou-left">
+              <div class="row">
+                <div class="col-12 col-lg-3 push-lg-9 text-center">
+                  <img src="/assets/thankyou.svg" alt="Thankyou Icon" class="img-responsive thankyou-icon" />
+                </div>
+                <div class="col-12 col-lg-9 pull-lg-3">
+                  <h3>Dear Sourabh,</h3>
+                  <p>Thanks for booking our Deluxe Room. Your booking is confirmed.  The booking details are as follows</p>
+                </div>
+              </div>
+              <h2>Booking Details</h2>
+              <ul>
+                <li>Booking Id <span><strong>18234</strong></span></li>
+                <li>Date of Booking <span>15 Dec’17</span></li>
+                <li>Check In <span>17 Dec’17</span></li>
+                <li>Check Out <span>19 Dec’17</span></li>
+                <li>Booked by <span>Sourabh Ghosh</span></li>
+              </ul>
+              <h2>Room Details</h2>
+              <ul>
+                <li>Room Name <span>Deluxe Single Room</span></li>
+                <li>Total No. of rooms booked <span>2</span></li>
+                <li>Rate Plan <span>XYZ Plan </span></li>
+              </ul>
+              <h2>Price Details</h2>
+              <ul>
+                <li>Total Price <span>Rs. 5,200</span></li>
+              </ul>
+            </div>
+            <div class="col-12 col-lg-6 thankyou-right">
+              <div class="thankyou-detials">
+                <h2>Cancellation policy & terms of booking</h2>
+                <p>Bookings made will be fully refundable if cancelled before 3 days of the stay date. Else a penalty of 100% of the price of the first night will be incurred..Note that any charges charged by credit card companies or payment gateway charges will not be refunded.</p>
+                <p>Check In 12:00 hours on the day of stay and Check Out before 10:00 hours on the last date of stay.</p>
+                <p>By continuing with your booking, you agree you have read and accepted our<br /><a href="terms-conditions">Terms and Conditions</a> and <a href="privacy-policy">Privacy Policy</a>
+Please bring your ID to present at check in. If the guest has more than one last name, please enter them all.</p>
+              </div>
+              <a href="#" class="print">PRINT <img src="/assets/know-more-arrrow.svg" alt=""></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= render partial: 'inc-footer' %>
+      </div>
+      <script>
+        $(".print").click(function(){
+          window.print();
+        })
+      </script>
+    </body>
+</html>

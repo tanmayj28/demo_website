@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Guest House</title>
+        <%= render partial: 'inc-script' %>
+    </head>
+    <body>
+      <div itemscope="" itemtype="http://schema.org/Hotel">
+        <%= render partial: 'inc-hotelschema' %>
+      <%= render partial: 'inc-header' %>
+      <div class="inner-content">
+        <div class="container rooms">
+          <h1>Contact Us</h1>
+          <div class="row">
+            <div class="col-12 col-md-7 booking-details-left">
+              <h2>For any query
+                <span>You can message us. Our customer servicing team will contact you within 24 hoours. </span>
+              </h2>
+              <form id="contact_form">
+                <div class="row">
+                  <div class="col-12 col-md-6"><input type="text" name="name" placeholder="Name" required /></div>
+                  <div class="col-12 col-md-6"><input type="email" name="email" placeholder="Email Address" required /></div>
+                  <div class="col-12 col-md-12">
+                    <!-- <input type="text" placeholder="Your Message" /> -->
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                  </div>
+                  <div class="col-12 col-md-12">
+                    <button>SEND <img src="/assets/know-more-arrrow.svg" alt=""></button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <%= render partial: 'inc-footer' %>
+      </div>
+      <script src="/assets/jquery.validate.min.js" type="text/javascript"></script>
+      <script>
+      $("#contact_form").validate({
+        submitHandler: function(form) {
+          $("#contact_form").submit();
+        }
+       });
+      </script>
+    </body>
+</html>

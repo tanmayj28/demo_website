@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Guest House</title>
+        <%= render partial: 'inc-script' %>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    </head>
+    <body>
+      <div itemscope="" itemtype="http://schema.org/Hotel">
+        <%= render partial: 'inc-hotelschema' %>
+      <%= render partial: 'inc-header' %>
+      <div class="inner-content">
+        <div class="container attractions">
+          <h1>Attractions</h1>
+          <div class="row">
+            <!-- <script data-fiz-text="Udaipur" data-fiz-id="zoXsgs4Fliv" src="https://fizlivestatic.s3.amazonaws.com/static/prod/widget.js" async></script> -->
+
+          <!-- <?php
+
+            header("Access-Control-Allow-Origin: *");
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+             CURLOPT_URL => "https://api.fiz.com/content/api/v2/places/?lat=24.571270&lon=73.691544&radius=10000&filter_type_ids=499&filter_type=type&orderby=86_priority&extradata=true",
+             CURLOPT_RETURNTRANSFER => true,
+             CURLOPT_ENCODING => "",
+             CURLOPT_MAXREDIRS => 10,
+             CURLOPT_TIMEOUT => 30,
+             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+             CURLOPT_CUSTOMREQUEST => "GET",
+             CURLOPT_HTTPHEADER => array(
+               "cache-control: no-cache",
+               "fizapikey: 7db1cd36-f846-4e52-8724-fb1d8eaf4f4e"
+             ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+             echo "cURL Error #:" . $err;
+            }
+
+            $data=json_decode($response);
+            foreach ($data->results as $value) {
+              ?> -->
+              <div class="col-12 col-lg-4 col-md-6 nearbyattraction-div" itemscope="" itemtype="http://schema.org/TouristAttraction">
+                <div class="near-by-attractions-main">
+                  <a href="javascript:void(0)" data-id="<?php echo $value->id ?>" data-lat="<?php echo $value->lat ?>" data-lon="<?php echo $value->lon ?>" data-name="<?php echo $value->name ?>">
+                    <div class="img-main">
+                      <div class="loading"></div>
+                      <img src="<?php echo $value->pictures->image; ?>" alt="Attractions Picture" itemprop="photo" />
+                    </div>
+                    <div class="content">
+                      <h3 itemprop="name"><?php echo $value->name; ?></h3>
+                      <p itemprop="description">
+                        <?php
+                          $string = substr($value->description, 0, 98);
+                          $string = substr($string, 0, strrpos($string, ' ')) . " ...";
+                          echo $string
+                        ?></p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <?php
+            }
+            ?>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-loader"></div>
+      <div id="myModal" class="modal attractions-modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+             <div class="modal-body">
+               <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+               <div class="map-area">
+                 <div id="map">
+                 </div>
+               </div>
+               <div class="popup-content-area">
+               </div>
+               <div class="clearfix"></div>
+           </div>
+        </div>
+      </div>
+    </div>
+
+
+      <%= render partial: 'inc-footer' %>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+
+      <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+      </script>
+      <script>
+        function showonmap(lat,lon,addr) {
+            var latLong = new google.maps.LatLng(lat, lon);
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 14,
+              center: latLong
+            });
+            var marker = new google.maps.Marker({
+              position: latLong,
+              map: map
+            });
+            var infowindow = new google.maps.InfoWindow();
+            infowindow.setContent(addr);
+            infowindow.open(map, marker);
+        }
+
+        $(".near-by-attractions-main a").each(function(){
+          this.addEventListener('click', function() {
+                  var lat = $(this).attr("data-lat");
+                  var lon = $(this).attr("data-lon");
+                  var name = $(this).attr("data-name");
+                    showonmap(lat,lon,name);
+                  }, false);
+        });
+        $(".near-by-attractions-main .img-main").each(function(){
+          var getImagepath = $(this).find("img").attr("src");
+          $(this).css({ background: "url("+getImagepath+") no-repeat center center / cover"})
+        });
+        $(".near-by-attractions-main a").click(function(){
+          var getId = $(this).attr("data-id");
+          //alert(getId);
+            $.ajax({
+            url: "getdata?id="+ getId,
+            type: "GET",
+            beforeSend: function(){
+              $(".modal-loader").show();
+            },
+            success: function (data, textStatus, jqXHR) {
+              setTimeout(function(){
+                $(".attractions-modal .popup-content-area").html(data);
+                $('#myModal').modal({show:true});
+                $(".modal-loader").hide();
+                var owl = $('.attraction-slider');
+                owl.owlCarousel({
+                  items: 1,
+                  nav:true,
+                  lazyLoad: true,
+                  smartSpeed: 700,
+                  callbacks: true
+                });
+                $(".attraction-slider .owl-item").each(function(){
+                  var getImagePath = $(this).find("img").attr("src");
+                  //alert(getImagePath);
+                  $(this).css({background: "url("+getImagePath+") no-repeat center center / cover"})
+                });
+                var rating = 0;
+                $(".review li div.review-rating").each(function(){
+                  var getRating = parseInt($(this).attr("data-rating"));
+                  console.log(getRating);
+                  $(this).rateYo({
+                    rating: getRating,
+                    readOnly: true,
+                    starWidth: "15px",
+                    spacing: "2px"
+                  });
+                });
+              }, 100);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+            }
+          });
+        });
+      </script>
+      <script >
+        google.maps.event.addDomListener(window, 'load', initMap);
+      </script>
+    </body>
+</html>

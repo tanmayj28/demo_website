@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Guest House</title>
+        <%= render partial: 'inc-script' %>
+    </head>
+    <body class="body-padding">
+      <div itemscope="" itemtype="http://schema.org/Hotel">
+        <%= render partial: 'inc-hotelschema' %>
+      <%= render partial: 'inc-header' %>
+      <div class="homebanner">
+        <div class="owl-carousel banner-slider">
+          <div class="banner-image" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+            <img src="/assets/banner.jpg" alt="Hotel Banner" itemprop="contentUrl url" />
+          </div>
+          <div class="banner-image" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+            <img src="/assets/banner.jpg" alt="Hotel Banner" itemprop="contentUrl url" />
+          </div>
+          <div class="banner-image" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+            <img src="/assets/banner.jpg" alt="Hotel Banner" itemprop="contentUrl url" />
+          </div>
+        </div>
+        <div class="container">
+          <div class="banner-text">
+            <h1>Luxury space<br />
+            you can afford</h1>
+          </div>
+          <div class="desktop-booking">
+            <%= render partial: 'inc-booking' %>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-booking">
+        <%= render partial: 'inc-booking' %>
+      </div>
+      <section class="container-fluid about-intro">
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <div class="row">
+              <div class="col-12 col-lg-10 offset-lg-2">
+                <h3>ABOUT US</h3>
+                <h2>Best place to<br />enjoy your life</h2>
+                <p itemprop="description">Based at Udaipur, India, Hotel Hanuman Ghat surely provides it’s patrons a pleasure filled experience. We are well equipped unit boasting more than 20 rooms for the customers based across the globe. The budget hotel in Udaipur is positioned at the amazing destination. </p>
+                <h4>Amenities</h4>
+
+                <div class="amenities-main">
+                  <div class="row amenities">
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <!-- <img src="/assets/amenities-icon.svg" alt="" /> -->
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"/>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"/>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"/>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"/>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"/>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"/>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"/>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+                    <div class="col-12 col-sm-3 amenitie" itemscope itemtype="http://schema.org/LocationFeatureSpecification">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                          <path fill="none" fill-rule="evenodd" stroke="#849F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.974v3.01a2.005 2.005 0 0 1-.652 1.488c-.417.382-.977.57-1.54.52a19.926 19.926 0 0 1-8.68-3.081 19.59 19.59 0 0 1-6.033-6.022 19.836 19.836 0 0 1-3.087-8.701 2.005 2.005 0 0 1 .518-1.534c.38-.416.919-.653 1.483-.654h3.017a2.01 2.01 0 0 1 2.011 1.726c.128.964.364 1.91.704 2.82.276.734.1 1.56-.452 2.118L7.012 8.939a16.074 16.074 0 0 0 6.033 6.021l1.277-1.274a2.014 2.014 0 0 1 2.122-.452c.912.34 1.86.575 2.826.703A2.008 2.008 0 0 1 21 15.974z" class="icon-stroke"/>
+                      </svg>
+                      <div class="clearfix"></div>
+                      <span itemprop="name">Free Calling</span>
+                    </div>
+
+
+                  </div>
+                </div>
+
+
+
+                <a href="aboutus" itemprop="url">KNOW MORE <img src="/assets/know-more-arrrow.svg" alt="Know More Arrow" /></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6 about-slider-main">
+            <div class="row">
+              <div class="col-12 col-lg-10 offset-lg-2">
+                <div class="about-slider-home">
+                  <div><img src="/assets/about-slider1.jpg" alt="Hotel Picture" /></div>
+                  <div><img src="/assets/about-slider1.jpg" alt="Hotel Picture" /></div>
+                  <div><img src="/assets/about-slider1.jpg" alt="Hotel Picture" /></div>
+                </div>
+                <div class="about-slider-home-thumb">
+                  <div><img src="/assets/about-slider-thum1.jpg" alt="Hotel Picture Thumbnail" /></div>
+                  <div><img src="/assets/about-slider-thum1.jpg" alt="Hotel Picture Thumbnail" /></div>
+                  <div><img src="/assets/about-slider-thum1.jpg" alt="Hotel Picture Thumbnail" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <h3>ROOMS</h3>
+          <h2>Guests Favorite Rooms</h2>
+          <div class="rooms-slider">
+            <div itemscope="" itemtype="http://schema.org/Room">
+              <img src="/assets/room-slider1.jpg" alt="Room Picture" itemprop="photo" />
+              <div class="overlay">
+                <a href="room-details">DETAILS</a>
+              </div>
+              <div class="caption">
+                <p itemprop="name">Super Deluxe Room with Lake view</p>
+                <span>Rs. 2000</span>
+                <a href="room-details" itemprop="url">BOOK NOW</a>
+              </div>
+            </div>
+            <div itemscope="" itemtype="http://schema.org/Room">
+              <img src="/assets/room-slider1.jpg" alt="Room Picture" itemprop="photo" />
+              <div class="overlay">
+                <a href="room-details">DETAILS</a>
+              </div>
+              <div class="caption">
+                <p itemprop="name">Super Deluxe Room with Lake view</p>
+                <span>Rs. 2000</span>
+                <a href="room-details" itemprop="url">BOOK NOW</a>
+              </div>
+            </div>
+            <div itemscope="" itemtype="http://schema.org/Room">
+              <img src="/assets/room-slider1.jpg" alt="Room Picture" itemprop="photo" />
+              <div class="overlay">
+                <a href="room-details">DETAILS</a>
+              </div>
+              <div class="caption">
+                <p itemprop="name">Super Deluxe Room with Lake view</p>
+                <span>Rs. 2000</span>
+                <a href="room-details" itemprop="url">BOOK NOW</a>
+              </div>
+            </div>
+            <div itemscope="" itemtype="http://schema.org/Room">
+              <img src="/assets/room-slider1.jpg" alt="Room Picture" itemprop="photo" />
+              <div class="overlay">
+                <a href="room-details">DETAILS</a>
+              </div>
+              <div class="caption">
+                <p itemprop="name">Super Deluxe Room with Lake view</p>
+                <span>Rs. 2000</span>
+                <a href="room-details" itemprop="url">BOOK NOW</a>
+              </div>
+            </div>
+            <div itemscope="" itemtype="http://schema.org/Room">
+              <img src="/assets/room-slider1.jpg" alt="Room Picture" itemprop="photo" />
+              <div class="overlay">
+                <a href="room-details">DETAILS</a>
+              </div>
+              <div class="caption">
+                <p itemprop="name">Super Deluxe Room with Lake view</p>
+                <span>Rs. 2000</span>
+                <a href="room-details" itemprop="url">BOOK NOW</a>
+              </div>
+            </div>
+            <div itemscope="" itemtype="http://schema.org/Room">
+              <img src="/assets/room-slider1.jpg" alt="Room Picture" itemprop="photo" />
+              <div class="overlay">
+                <a href="room-details">DETAILS</a>
+              </div>
+              <div class="caption">
+                <p itemprop="name">Super Deluxe Room with Lake view</p>
+                <span>Rs. 2000</span>
+                <a href="room-details" itemprop="url">BOOK NOW</a>
+              </div>
+            </div>
+            <div itemscope="" itemtype="http://schema.org/Room">
+              <img src="/assets/room-slider1.jpg" alt="Room Picture" itemprop="photo" />
+              <div class="overlay">
+                <a href="room-details">DETAILS</a>
+              </div>
+              <div class="caption">
+                <p itemprop="name">Super Deluxe Room with Lake view</p>
+                <span>Rs. 2000</span>
+                <a href="room-details" itemprop="url">BOOK NOW</a>
+              </div>
+            </div>
+            <div itemscope="" itemtype="http://schema.org/Room">
+              <img src="/assets/room-slider1.jpg" alt="Room Picture" itemprop="photo" />
+              <div class="overlay">
+                <a href="room-details">DETAILS</a>
+              </div>
+              <div class="caption">
+                <p itemprop="name">Super Deluxe Room with Lake view</p>
+                <span>Rs. 2000</span>
+                <a href="room-details" itemprop="url">BOOK NOW</a>
+              </div>
+            </div>
+            <div itemscope="" itemtype="http://schema.org/Room">
+              <img src="/assets/room-slider1.jpg" alt="Room Picture" itemprop="photo" />
+              <div class="overlay">
+                <a href="room-details">DETAILS</a>
+              </div>
+              <div class="caption">
+                <p itemprop="name">Super Deluxe Room with Lake view</p>
+                <span>Rs. 2000</span>
+                <a href="room-details" itemprop="url">BOOK NOW</a>
+              </div>
+            </div>
+            <div itemscope="" itemtype="http://schema.org/Room">
+              <img src="/assets/room-slider1.jpg" alt="Room Picture" itemprop="photo" />
+              <div class="overlay">
+                <a href="room-details">DETAILS</a>
+              </div>
+              <div class="caption">
+                <p itemprop="name">Super Deluxe Room with Lake view</p>
+                <span>Rs. 2000</span>
+                <a href="room-details" itemprop="url">BOOK NOW</a>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="rooms-slider-arrow">
+            <a href="javascript:void(0)" data-state="prev" class="arrowdisable">
+              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="17" viewBox="0 0 21 17">
+                  <path fill="#849F27" fill-rule="evenodd" stroke="#83A016" d="M1.246 7.91c.012-.014.016-.031.029-.044L7.832 1.25a.835.835 0 0 1 1.193 0 .856.856 0 0 1 0 1.202L3.847 7.676h15.347c.446 0 .806.368.806.82 0 .453-.36.82-.806.82H3.84l5.185 5.233a.857.857 0 0 1 0 1.203.84.84 0 0 1-1.193 0L1.275 9.135c-.037-.036-.054-.082-.082-.124A.812.812 0 0 1 1 8.497c0-.231.095-.438.246-.587z"/>
+              </svg>
+            </a>
+            <a href="javascript:void(0)" data-state="next">
+              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="17" viewBox="0 0 21 17">
+                  <path fill="#849F27" fill-rule="evenodd" stroke="#83A016" d="M19.754 9.09c-.012.014-.016.031-.029.044l-6.557 6.615a.835.835 0 0 1-1.193 0 .856.856 0 0 1 0-1.202l5.178-5.223H1.806A.813.813 0 0 1 1 8.504c0-.453.36-.82.806-.82H17.16L11.975 2.45a.857.857 0 0 1 0-1.203.84.84 0 0 1 1.193 0l6.557 6.617c.037.036.054.082.082.124a.812.812 0 0 1 .193.514.822.822 0 0 1-.246.587z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </section>
+      <%= render partial: 'inc-testimonials' %>
+      <%= render partial: 'inc-blog' %>
+
+      <%= render partial: 'inc-footer' %>
+      </div>
+      <%= render partial: 'booking-widget-scripts' %>
+    </body>
+</html>

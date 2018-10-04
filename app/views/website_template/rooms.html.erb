@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Guest House</title>
+        <%= render partial: 'inc-script' %>
+    </head>
+    <body>
+      <div itemscope="" itemtype="http://schema.org/Hotel">
+        <%= render partial: 'inc-hotelschema' %>
+      <%= render partial: 'inc-header' %>
+      <div class="inner-content">
+        <div class="container rooms">
+          <h1>Search your room</h1>
+          <ul class="sorting">
+              <li><a href="javascript:void(0);" data-filter="*" class="active">All</a></li>
+              <li><a href="javascript:void(0);" data-filter=".single-bed">Single Bed</a></li>
+              <li><a href="javascript:void(0);" data-filter=".double-bed">Double Bed</a></li>
+              <li><a href="javascript:void(0);" data-filter=".tripple-bed">Tripple Bed</a></li>
+            </ul>
+            <p class="left-rooms">We’re left with 12 rooms</p>
+            <div class="clearfix"></div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="grid-main">
+          <div class="grid">
+            <div class="grid-item double-bed" itemscope="" itemtype="http://schema.org/Room">
+              <div class="row no-gutters">
+                <div class="col-12 col-lg-6 room-margin push-lg-6">
+                  <div class="room-slider" id="room-slider1">
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                  </div>
+                  <div class="room-slider-thumb">
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6 room-margin room-details pull-lg-6">
+                  <div class="room-content">
+                    <div class="col-12 col-lg-10 offset-lg-2">
+                      <h2 itemprop="name">Single Deluxe Room 1 <span>Room for maximum 2 people</span></h2>
+                      <p class="price">Rs. 2,000<span>/night</span></p>
+                      <p itemprop="description">Based at Udaipur, India, Hotel Hanuman Ghat surely provides it’s patrons a pleasure filled experience. We are well equipped unit boasting more than 20 rooms for the customers based across the globe. The is truly alluring for the travellers. </p>
+                      <a href="room-details" itemprop="url">SHOW DETAILS <img src="/assets/know-more-arrrow.svg" alt=""></a>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="grid-item tripple-bed" itemscope="" itemtype="http://schema.org/Room">
+              <div class="row no-gutters">
+                <div class="col-12 col-lg-6 room-margin">
+                  <div class="room-slider"  id="room-slider2">
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                  </div>
+                  <div class="room-slider-thumb">
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6 room-margin room-details">
+                  <div class="room-content">
+                    <div class="col-12 col-lg-10 text-left">
+                      <h2 itemprop="name">Single Deluxe Room 1 <span>Room for maximum 2 people</span></h2>
+                      <p class="price">Rs. 2,000<span>/night</span></p>
+                      <p itemprop="description">Based at Udaipur, India, Hotel Hanuman Ghat surely provides it’s patrons a pleasure filled experience. We are well equipped unit boasting more than 20 rooms for the customers based across the globe. The is truly alluring for the travellers. </p>
+                      <a href="room-details" itemprop="url">SHOW DETAILS <img src="/assets/know-more-arrrow.svg" alt=""></a>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="grid-item single-bed" itemscope="" itemtype="http://schema.org/Room">
+              <div class="row no-gutters">
+                <div class="col-12 col-lg-6 room-margin push-lg-6">
+                  <div class="room-slider" id="room-slider1">
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                    <div><img src="/assets/about-slider1.jpg" alt="Room Picture" itemprop="photo" /></div>
+                  </div>
+                  <div class="room-slider-thumb">
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                    <div><img src="/assets/about-slider-thum1.jpg" alt="Room Picture Thumbnail" /></div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6 room-margin room-details pull-lg-6">
+                  <div class="room-content">
+                    <div class="col-12 col-lg-10 offset-lg-2">
+                      <h2 itemprop="name">Single Deluxe Room 1 <span>Room for maximum 2 people</span></h2>
+                      <p class="price">Rs. 2,000<span>/night</span></p>
+                      <p itemprop="description">Based at Udaipur, India, Hotel Hanuman Ghat surely provides it’s patrons a pleasure filled experience. We are well equipped unit boasting more than 20 rooms for the customers based across the globe. The is truly alluring for the travellers. </p>
+                      <a href="room-details" itemprop="url">SHOW DETAILS <img src="/assets/know-more-arrrow.svg" alt=""></a>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <%= render partial: 'inc-testimonials' %>
+      <%= render partial: 'inc-blog' %>
+
+      <%= render partial: 'inc-footer' %>
+      </div>
+      <script src="/assets/isotope.pkgd.min.js"></script>
+      <script>
+        // Room Sorting
+        $(window).load(function(){
+          $grid = $('.grid').isotope({
+            itemSelector: '.grid-item',
+            layoutMode: 'fitRows',
+            masonry: {
+              gutter: 10
+            }
+          });
+        });
+
+        // Room sorting Click
+        $(".sorting li a").click(function(){
+          var _this = $(this);
+          var getDataFilter = _this.attr("data-filter");
+          $(".sorting li a").removeClass("active");
+          _this.addClass("active");
+          $grid.isotope({ filter: getDataFilter });
+        });
+        </script>
+    </body>
+</html>

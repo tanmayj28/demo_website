@@ -1,0 +1,486 @@
+<!-- <?php
+$ip  = !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+$url = "http://freegeoip.net/json/$ip";
+$ch  = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+$data = curl_exec($ch);
+curl_close($ch);
+
+if ($data) {
+    $location = json_decode($data);
+    $city=$location->city;
+     $lat = $location->latitude;
+     $lon = $location->longitude;
+}else{
+  $lat=0;
+  $lon=0;
+  $city="";
+}
+?> -->
+<!-- <script type="text/javascript">
+  var location;
+  var city;
+  var lat;
+  var lon;
+  var ip  = !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+  console.log(ip);
+  $.ajax({
+    type: "GET",
+    url: "http://freegeoip.net/json/"+ip,
+    success: function(data) {
+      location=data,
+      city=data.city,
+      lat=data.latitude,
+      lon=data.longitude
+    },
+    error: function() {
+      lat=0,
+      lon=0,
+      city=""
+    }
+  });
+
+
+  $.ajax({ url:'http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true',
+         success: function(data){
+             alert(data.results[0].formatted_address);
+             /*or you could iterate the components for only the city and state*/
+         }
+  });
+</script> -->
+<footer>
+  <div class="container">
+    <div class="row no-gutters map-main">
+      <div class="col-12 col-lg-6 map-left">
+        <div class="map-details">
+          <div class="map-content">
+            <p>Directions to the Hotel Baur Au Lac</p>
+            <!-- <input type="text" placeholder="Type your location" />
+            <div class="dropdown-map">
+              <p>Mode of Transport</p>
+              <select>
+                <option>Car</option>
+                <option>Bike</option>
+              </select>
+            </div>
+            <button>GET DIRECTIONS <img src="/assets/know-more-arrrow.svg" alt=""></button> -->
+            <form id="calculate-route" name="calculate-route" action="#" method="get">
+                <input type="text" id="from" placeholder="Type your location" />
+                <input type="hidden" id="to" value="Paltan Masjid, Chohtta Chetak Rd, Chamanpura, Udaipur, Rajasthan 313001" />
+                <div class="dropdown-map">
+                  <p>Mode of Transport</p>
+                  <select id="mode">
+                    <option value="DRIVING">Driving</option>
+                    <option value="WALKING">Walking</option>
+                    <option value="BICYCLING">Bicycling</option>
+                    <option value="TRANSIT">Transit</option>
+                  </select>
+                </div>
+                <button id="submit">GET DIRECTIONS <img src="/assets/know-more-arrrow.svg" alt="Know More Arrow"></button>
+                <div class="clearfix"></div>
+                <div id="error"></div>
+            </form>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 map-right">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14017.48240079138!2d77.2002633!3d28.558632149999998!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1515660859907" width="100%" height="377" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <div id="distance"></div>
+        <div id="duration"></div>
+        <!-- <div id="mapdirection"></div> -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-lg-4 offset-lg-1 footer-right push-lg-7">
+        <div class="row">
+          <div class="col-12 col-md-6 footer-links">
+            <h2>ABOUT</h2>
+              <ul>
+                <li><a href="gallery" itemprop="url">Gallery</a></li>
+                <li><a href="contact-us" itemprop="url">Contact Us</a></li>
+              </ul>
+          </div>
+          <div class="col-12 col-md-6 footer-links">
+            <h2>OTHERS</h2>
+              <ul>
+                <li><a href="modify-booking" itemprop="url">Modify Booking</a></li>
+                <li><a href="terms-conditions" itemprop="url">Terms & Conditions</a></li>
+                <li><a href="sitemap" itemprop="url">Sitemap</a></li>
+              </ul>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-12 col-lg-7 footer-left pull-lg-5">
+        <img src="/assets/logo.png" alt="logo" class="footer-logo" />
+        <h2>Hotel Baur Au Lac</h2>
+        <h4>ADDRESS</h4>
+        <p itemprop="address">91, Udaipur City, Udaipur, Paltan Ki Masjid, Chetak Circle, Rajasthan - 313001</p>
+        <div class="row">
+          <div class="col-12 col-sm-4">
+            <h4>PHONE</h4>
+            <p><a href="tel: +1 567-678-4590"><span itemprop="telephone">+1 567-678-4590</span></a><br />
+              <a href="tel: +91 8468085468"><span itemprop="telephone">+91 8468085468</span></a></p>
+          </div>
+          <div class="col-12 col-sm-4 footer-middle">
+            <h4>EMAIL US AT</h4>
+            <p><a href="mailto:contact@hotelmizan.com" itemprop="email">contact@hotelmizan.com</a></p>
+          </div>
+          <div class="col-12 col-sm-4">
+            <h4>WE LOVE SOCIAL</h4>
+            <ul class="social">
+              <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="footer-gray">
+    <div class="container">
+      <p>All member work copyright of respective owner, © 2017 - 2018</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/jquery-2.2.4.min.js" crossorigin="anonymous"></script>
+<script src="/assets/tether.min.js"></script>
+<script src="/assets/bootstrap.min.js"></script>
+<script src="/assets/jquery.easing.min.js"></script>
+<script src="/assets/slick.min.js"></script>
+<script src="/assets/jquery.rateyo.min.js"></script>
+<script src="/assets/owl.carousel.min.js"></script>
+<script src="/assets/main.js"></script>
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyBNdmeYb8fziR-_ojtQtIF0pU8nErFC-0g&libraries=places"></script>
+<script>
+
+
+
+
+        google.maps.event.addDomListener(window, 'load', function () {
+            new google.maps.places.Autocomplete(document.getElementById('from'));
+            //var top = 300;
+            //$(".pac-container").css({top: top});
+            var latit=lat;
+            var longit=lon;
+            var searchAddress=city;
+            if(latit==''){
+              latit=40.84;
+            }
+            if(longit==''){
+              longit=14.25;
+            }
+            var chicago = new google.maps.LatLng(latit, longit);
+                  var mapOptions = {
+                      zoom: 12,
+                      center: chicago
+                  };
+                  map = new google.maps.Map(document.getElementById('mapdirection'), mapOptions);
+                  var marker1 = new google.maps.Marker({
+                      position: chicago,
+                      icon: "https://www.sindhurealestate.com/newimages/lab-mobile.png",
+                      map: map,
+                      title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />" + searchAddress
+                  });
+                  google.maps.event.addListener(marker1, "click", function (e) {
+                      var infoWindow1 = new google.maps.InfoWindow();
+                      infoWindow1.setContent(marker1.title);
+                      infoWindow1.open(map, marker1);
+                  });
+
+        });
+
+
+      /** Defines the Popup class. */
+function definePopupClass() {
+  /**
+   * A customized popup on the map.
+   * @param {!google.maps.LatLng} position
+   * @param {!Element} content
+   * @constructor
+   * @extends {google.maps.OverlayView}
+   */
+  Popup = function(position, content) {
+    this.position = position;
+
+    content.classList.add('popup-bubble-content');
+
+    var pixelOffset = document.createElement('div');
+    pixelOffset.classList.add('popup-bubble-anchor');
+    pixelOffset.appendChild(content);
+
+    this.anchor = document.createElement('div');
+    this.anchor.classList.add('popup-tip-anchor');
+    this.anchor.appendChild(pixelOffset);
+
+    // Optionally stop clicks, etc., from bubbling up to the map.
+    this.stopEventPropagation();
+  };
+  // NOTE: google.maps.OverlayView is only defined once the Maps API has
+  // loaded. That is why Popup is defined inside initMap().
+  Popup.prototype = Object.create(google.maps.OverlayView.prototype);
+
+  /** Called when the popup is added to the map. */
+  Popup.prototype.onAdd = function() {
+    this.getPanes().floatPane.appendChild(this.anchor);
+  };
+
+  /** Called when the popup is removed from the map. */
+
+
+  /** Called when the popup needs to draw itself. */
+  Popup.prototype.draw = function() {
+    var divPosition = this.getProjection().fromLatLngToDivPixel(this.position);
+    // Hide the popup when it is far out of view.
+    var display =
+        Math.abs(divPosition.x) < 4000 && Math.abs(divPosition.y) < 4000 ?
+        'block' :
+        'none';
+
+    if (display === 'block') {
+      this.anchor.style.left = divPosition.x + 'px';
+      this.anchor.style.top = divPosition.y + 'px';
+    }
+    if (this.anchor.style.display !== display) {
+      this.anchor.style.display = display;
+    }
+  };
+
+  /** Stops clicks/drags from bubbling up to the map. */
+  Popup.prototype.stopEventPropagation = function() {
+    var anchor = this.anchor;
+    anchor.style.cursor = 'auto';
+
+    ['click', 'dblclick', 'contextmenu', 'wheel', 'mousedown', 'touchstart',
+     'pointerdown']
+        .forEach(function(event) {
+          anchor.addEventListener(event, function(e) {
+            e.stopPropagation();
+          });
+        });
+  };
+}
+      function calculateRoute(from, to) {
+        // Center initialized to Naples, Italy
+        var lati='<?php echo $lat;?>';
+        var loni='<?php echo $lon;?>';
+        if(lati==''){
+          lati=40.84;
+        }
+        if(loni==''){
+          loni=14.25;
+        }
+        var selectedMode = document.getElementById('mode').value;
+
+        definePopupClass();
+        var myOptions = {
+          zoom: 20,
+          center: new google.maps.LatLng(lati,loni),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        // Draw the map
+        var mapObject = new google.maps.Map(document.getElementById("mapdirection"), myOptions);
+
+        var directionsService = new google.maps.DirectionsService();
+        var directionsRequest = {
+          origin: from,
+          destination: to,
+          travelMode: google.maps.TravelMode[selectedMode],
+          unitSystem: google.maps.UnitSystem.METRIC
+        };
+
+        directionsService.route(
+          directionsRequest,
+          function(response, status)
+          {
+            if (status == google.maps.DirectionsStatus.OK && status!='ZERO_RESULTS')
+            {
+             document.getElementById('error').innerHTML="";
+              new google.maps.DirectionsRenderer({
+                map: mapObject,
+                directions: response
+              });
+
+
+              if (status == google.maps.DistanceMatrixStatus.OK  ) {
+                    var distance = response.routes[0].legs[0].distance.text;
+                    var duration = response.routes[0].legs[0].duration.text;
+                    var geocoder = new google.maps.Geocoder;
+                    geocoder.geocode({'address': response.request.destination.query}, function(results2, status) {
+                        latitude = results2[0].geometry.location.lat();
+                        longitude = results2[0].geometry.location.lng();
+                        if (!$('#distance').length){
+                          $(".map-right").append("<div id='distance'>"+distance+"</div>");
+                              popup = new Popup(
+                            new google.maps.LatLng(latitude,longitude),
+                                document.getElementById('distance'));
+                            popup.setMap(mapObject);
+                          //alert();
+                          //cartDiv = "<div id='distance'>test</div>"; // document.createElement('div');
+                          //document.body.appendChild(cartDiv);
+                        }else{
+                          document.getElementById('distance').innerHTML=distance;
+                          $("#distance").css("display","block");
+                          popup = new Popup(
+                            new google.maps.LatLng(latitude,longitude),
+                                document.getElementById('distance'));
+                            popup.setMap(mapObject);
+                        }
+                    });
+                    geocoder.geocode({'address': response.request.origin.query}, function(results3, status) {
+                        latitude = results3[0].geometry.location.lat();
+                        longitude = results3[0].geometry.location.lng();
+                        if (!$('#duration').length){
+                          $(".map-right").append("<div id='duration'>"+duration+"</div>");
+                            popup = new Popup(
+                          new google.maps.LatLng(latitude,longitude),
+                              document.getElementById('duration'));
+                          popup.setMap(mapObject);
+                          //alert();
+                          //cartDiv = "<div id='distance'>test</div>"; // document.createElement('div');
+                          //document.body.appendChild(cartDiv);
+                        }else{
+                          document.getElementById('duration').innerHTML=duration;
+
+                            $("#duration").css("display","block");
+
+                            popup = new Popup(
+                            new google.maps.LatLng(latitude,longitude),
+                                document.getElementById('duration'));
+                            popup.setMap(mapObject);
+                        }
+                    });
+
+              } else {
+                    alert("Unable to find the distance via road.");
+              }
+
+            }
+            else{
+
+              document.getElementById('error').innerHTML="";
+              $("#error").append("Unable to retrieve your route");
+              var geocoder = new google.maps.Geocoder;
+              geocoder.geocode({'placeId': response.geocoded_waypoints[0].place_id}, function(results, status) {
+
+                if (status !== 'OK') {
+                  window.alert('Geocoder failed due to: ' + status);
+                  return;
+                }
+                console.log(results);
+                var map = new google.maps.Map(document.getElementById('mapdirection'), {
+                  center: {lat: -33.8688, lng: 151.2195},
+                  zoom: 13
+                });
+                var marker = new google.maps.Marker({
+                  map: map
+                });
+                var infowindow = new google.maps.InfoWindow();
+                marker.addListener('click', function() {
+                  infowindow.open(map, marker);
+                });
+                map.setZoom(11);
+                map.setCenter(results[0].geometry.location);
+                // Set the position of the marker using the place ID and location.
+                marker.setPlace({
+                  placeId: response.geocoded_waypoints[0].place_id,
+                  location: results[0].geometry.location
+                });
+                marker.setVisible(true);
+                infowindow.setContent(results[0].formatted_address);
+                infowindow.open(map, marker);
+              });
+              geocoder.geocode({'placeId': response.geocoded_waypoints[1].place_id}, function(results1, status) {
+
+                if (status !== 'OK') {
+                  window.alert('Geocoder failed due to: ' + status);
+                  return;
+                }
+                var map1 = new google.maps.Map(document.getElementById('mapdirection'), {
+                  center: {lat: -33.8688, lng: 151.2195},
+                  zoom: 13
+                });
+                var marker1 = new google.maps.Marker({
+                  map: map1
+                });
+                var infowindow1 = new google.maps.InfoWindow();
+                marker1.addListener('click', function() {
+                  infowindow1.open(map1, marker1);
+                });
+                //map1.setZoom(11);
+                map1.setCenter(results1[0].geometry.location);
+                // Set the position of the marker using the place ID and location.
+                marker1.setPlace({
+                  placeId: response.geocoded_waypoints[1].place_id,
+                  location: results1[0].geometry.location
+                });
+                marker1.setVisible(true);
+                infowindow1.setContent(results1[0].formatted_address);
+                infowindow1.open(map1, marker1);
+              });
+
+            }
+          }
+        );
+
+      }
+
+      $(document).ready(function() {
+        // If the browser supports the Geolocation API
+        var popup, Popup;
+        if (typeof navigator.geolocation == "undefined") {
+          $("#error").text("Your browser doesn't support the Geolocation API");
+          return;
+        }
+
+        $("#from-link, #to-link").click(function(event) {
+          event.preventDefault();
+          var addressId = this.id.substring(0, this.id.indexOf("-"));
+
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+              "location": new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+            },
+            function(results, status) {
+              if (status == google.maps.GeocoderStatus.OK)
+                $("#" + addressId).val(results[0].formatted_address);
+              else
+                $("#error").append("Unable to retrieve your address<br />");
+            });
+          },
+          function(positionError){
+            $("#error").append("Error: " + positionError.message + "<br />");
+          },
+          {
+            enableHighAccuracy: true,
+            timeout: 10 * 1000 // 10 seconds
+          });
+        });
+
+        $("#from").keyup(function(){
+          $("#from").removeClass("input-error");
+          return false;
+        });
+
+        $("#submit").click(function(event) {
+          event.preventDefault();
+          if($("#from").val() == ''){
+            $("#from").addClass("input-error");
+          } else {
+            $("#from").removeClass("input-error");
+            calculateRoute($("#from").val(), $("#to").val());
+          }
+        });
+      });
+
+    </script>

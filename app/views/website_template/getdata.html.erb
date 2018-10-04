@@ -1,0 +1,93 @@
+<?php
+$curl = curl_init();
+curl_setopt_array($curl, array(
+ CURLOPT_URL => "https://api.fiz.com/content/api/v2/placedetails/".$_REQUEST['id'],
+ CURLOPT_RETURNTRANSFER => true,
+ CURLOPT_ENCODING => "",
+ CURLOPT_MAXREDIRS => 10,
+ CURLOPT_TIMEOUT => 30,
+ CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+ CURLOPT_CUSTOMREQUEST => "GET",
+ CURLOPT_HTTPHEADER => array(
+   "cache-control: no-cache",
+   "fizapikey: 7db1cd36-f846-4e52-8724-fb1d8eaf4f4e"
+ ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+ echo "cURL Error #:" . $err;
+}
+
+$data=json_decode($response);
+//print_r($data);die;
+ ?>
+ <div class="inner-content-popup" itemscope="" itemtype="http://schema.org/TouristAttraction">
+   <div class="image-slider-area">
+     <div class="attraction-slider">
+       <?php
+       foreach ($data->pictures as $value) {
+         ?>
+          <img src="<?php echo $value->url; ?>" alt="Attractions Picture" itemprop="photo" />
+      <?php
+       }
+       ?>
+    </div>
+    <div class="attraction-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+      <p itemprop="ratingValue"><?php echo $data->rating ?></p>
+      <img src="/assets/star.svg" alt="ratinng" />
+    </div>
+   </div>
+   <div class="content-display-area">
+     <h2 itemprop="name"><?php echo $data->name ?></h2>
+     <div class="clearfix"></div>
+     <p class="address" itemprop="address"><?php echo $data->address ?></p>
+     <?php
+       if($data->phone != ""){
+     ?>
+       <p class="phone"><strong>Phone No:</strong> <span itemprop="telephone"><?php echo $data->phone ?></span></p>
+     <?php
+       }
+     ?>
+     <h3>Description</h3>
+     <p class="discription" itemprop="description"><?php echo $data->description ?></p>
+     <h3>Reviews</h3>
+     <?php
+       if(count($data->reviews)>0){
+     ?>
+     <ul class="review">
+       <?php
+         foreach ($data->reviews as $review) {
+       ?>
+       <li itemscope="" itemtype="http://schema.org/Review">
+         <p class="review-text" itemprop="reviewBody"><?php echo $review->text ?></p>
+         <p class="author-name" itemprop="author"><?php echo $review->author ?></p>
+         <meta itemprop="itemReviewed" content="<?php echo $review->provider ?>" />
+         <div itemscope itemtype="http://schema.org/AggregateRating">
+           <div class="review-rating" data-rating="<?php echo $review->rating ?>"></div>
+           <meta itemprop="itemReviewed" content="<?php echo $review->provider ?>" />
+           <meta itemprop="ratingValue" content="<?php echo $review->rating ?>">
+           <meta itemprop="ratingCount" content="5">
+           <meta itemprop="reviewCount" content="2"/>
+           <meta itemprop="bestRating" content="5"/>
+           <meta itemprop="worstRating" content="0"/>
+         </div>
+         <div class="clearfix"></div>
+       </li>
+       <?php
+         }
+       ?>
+     </ul>
+     <?php
+       } else {
+     ?>
+       <p class="no-result">No result found</p>
+     <?php
+       }
+     ?>
+   </div>
+</div>

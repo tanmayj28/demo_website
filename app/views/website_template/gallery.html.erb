@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Guest House</title>
+        <%= render partial: 'inc-script' %>
+        <link rel="stylesheet" href="/assets/lightbox.min.css">
+        <script src="/assets/lightbox-plus-jquery.min.js"></script>
+    </head>
+    <body>
+      <div itemscope="" itemtype="http://schema.org/Hotel">
+        <%= render partial:'inc-hotelschema' %>
+      <%= render partial: 'inc-header' %>
+      <div class="inner-content">
+        <div class="container gallery">
+          <h1>Gallery</h1>
+          <ul class="sorting">
+              <li><a href="javascript:void(0);" data-filter="*" class="active">ALL PHOTOS</a></li>
+              <li><a href="javascript:void(0);" data-filter=".hotel">HOTEL</a></li>
+              <li><a href="javascript:void(0);" data-filter=".restaurants">RESTAURANTS</a></li>
+              <li><a href="javascript:void(0);" data-filter=".rooms">ROOMS</a></li>
+            </ul>
+            <div class="grid">
+              <div class="grid-item hotel" itemscope="" itemtype="http://schema.org/Room">
+                  <a href="/assets/gallery.jpg" data-lightbox="example-set" data-title="title"><img src="/assets/gallery.jpg" alt="Gallery Picture" itemprop="photo" /></a>
+                  <meta itemprop="name" content="Room 1" />
+              </div>
+              <div class="grid-item restaurants" itemscope="" itemtype="http://schema.org/Room">
+                  <a href="/assets/gallery.jpg" data-lightbox="example-set" data-title="title"><img src="/assets/gallery.jpg" alt="Gallery Picture" itemprop="photo" /></a>
+                  <meta itemprop="name" content="Room 1" />
+              </div>
+              <div class="grid-item rooms" itemscope="" itemtype="http://schema.org/Room">
+                  <a href="/assets/gallery.jpg" data-lightbox="example-set" data-title="title"><img src="/assets/gallery.jpg" alt="Gallery Picture" itemprop="photo" /></a>
+                  <meta itemprop="name" content="Room 1" />
+              </div>
+              <div class="grid-item hotel" itemscope="" itemtype="http://schema.org/Room">
+                  <a href="/assets/gallery.jpg" data-lightbox="example-set" data-title="title"><img src="/assets/gallery.jpg" alt="Gallery Picture" itemprop="photo" /></a>
+                  <meta itemprop="name" content="Room 1" />
+              </div>
+              <div class="grid-item restaurants" itemscope="" itemtype="http://schema.org/Room">
+                  <a href="/assets/gallery.jpg" data-lightbox="example-set" data-title="title"><img src="/assets/gallery.jpg" alt="Gallery Picture" itemprop="photo" /></a>
+                  <meta itemprop="name" content="Room 1" />
+              </div>
+              <div class="grid-item rooms" itemscope="" itemtype="http://schema.org/Room">
+                  <a href="/assets/gallery.jpg" data-lightbox="example-set" data-title="title"><img src="/assets/gallery.jpg" alt="Gallery Picture" itemprop="photo" /></a>
+                  <meta itemprop="name" content="Room 1" />
+              </div>
+            </div>
+            <div class="load-more">
+              <a href="#">LOAD MORE PHOTS</a>
+            </div>
+        </div>
+
+      </div>
+      <%= render partial: 'inc-footer' %>
+      </div>
+      <script src="/assets/isotope.pkgd.min.js"></script>
+      <script>
+        // Room Sorting
+        $grid = $('.grid').isotope({
+          itemSelector: '.grid-item',
+          layoutMode: 'fitRows',
+          masonry: {
+            gutter: 10
+          }
+        });
+
+        // Room sorting Click
+        $(".sorting li a").click(function(){
+          var _this = $(this);
+          var getDataFilter = _this.attr("data-filter");
+          $(".sorting li a").removeClass("active");
+          _this.addClass("active");
+          $grid.isotope({ filter: getDataFilter });
+
+          $(".gallery .grid-item"+getDataFilter).each(function(){
+            $(this).find("a").attr("data-lightbox", getDataFilter);
+          });
+        });
+        </script>
+    </body>
+</html>

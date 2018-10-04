@@ -1,0 +1,201 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+$( function() {
+  var months = [ "", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+
+  // Date init on first time
+  var date = new Date(),
+  month = months[date.getMonth() + 1],
+  month1 = date.getMonth() + 1,
+  day = date.getDate();
+  year =  date.getFullYear();
+  $(".checkindate").html(day+" / "+month+"");
+  $(".checkoutdate").html(day+1+" / "+month+"");
+
+  var value = day+'-'+month1+'-'+year;
+  var value1 = day+1+'-'+month1+'-'+year;
+  $("#checkin").attr("value", value);
+  $("#checkout").attr("value", value1);
+
+  // From Date
+  from = $( ".from" ).datepicker({
+        changeMonth: false,
+        numberOfMonths: 1,
+        minDate: 0,
+        onSelect: function(dateText, inst) {
+          var date = $(this).datepicker('getDate'),
+              day  = date.getDate(),
+              month = months[date.getMonth() + 1],
+              month1 = date.getMonth() + 1,
+              year =  date.getFullYear();
+
+          $(".checkindate").html(day+" / "+month+"");
+          $(".checkoutdate").html(day+1+" / "+month+"");
+          $(this).hide();
+          var startDate = $(this).datepicker("getDate");
+          startDate.setDate(startDate.getDate() + 1); // change to + 1 if necessary
+          to.datepicker( "option", "minDate", startDate );
+          var value = day+'-'+month1+'-'+year;
+          $("#checkin").attr("value", value);
+          $('.to').toggle();
+        }
+      });
+
+  // To Date
+  to = $( ".to" ).datepicker({
+    minDate: 1,
+    changeMonth: false,
+    numberOfMonths: 1,
+    onSelect: function(dateText, inst) {
+      var date = $(this).datepicker('getDate'),
+          day  = date.getDate(),
+          month = months[date.getMonth() + 1],
+          month1 = date.getMonth() + 1,
+          year =  date.getFullYear();
+      $(".checkoutdate").html(day+" / "+month+"");
+      $(this).hide();
+      var value = day+'-'+month1+'-'+year;
+      $("#checkout").attr("value", value);
+    }
+  });
+
+  // getdate function
+  var dateFormat = "mm/dd/yy";
+  function getDate( element ) {
+    var date;
+    try {
+      date = $.datepicker.parseDate( dateFormat, element.value );
+    } catch( error ) {
+      date = null;
+    }
+    return date;
+  }
+  });
+
+// Checkin click
+$('.checkin').click(function(event){
+    event.stopPropagation();
+     $(".from").toggle();
+     $(".to").hide();
+     $(".dropdown").hide();
+
+});
+$(".from").on("click", function (event) {
+    event.stopPropagation();
+});
+
+// Checkout click
+$('.checkout').click(function(event){
+    event.stopPropagation();
+      $(".to").toggle();
+      $(".from").hide();
+      $(".dropdown").hide();
+});
+$(".to").on("click", function (event) {
+    event.stopPropagation();
+});
+
+// Rooms click
+$(".rooms").click(function(event){
+  event.stopPropagation();
+   $(this).find(".dropdown").toggle();
+   $(".adults .dropdown").hide();
+   $(".children .dropdown").hide();
+});
+
+
+var totalRooms;
+$(".rooms ul li a").click(function(){
+  $(this).parents(".rooms").find("#totalrooms").attr("value", parseInt($(this).text()));
+  $(this).parents(".rooms").find(".right-date").html(parseInt($(this).text()));
+  totalRooms = parseInt($(this).text());
+  $(".adults .dropdown-body, .children .dropdown-body").html("");
+  $(".adults .right-date").html(totalRooms);
+  $(".adults #totaladults").attr("value", totalRooms);
+  $(".children .right-date").html("0");
+  $(".children #totalchildren").attr("value", '0');
+  for(var i=1; i<=totalRooms; i++){
+    var x = i;
+    $(".adults .dropdown-body").append('<div class="grid-view"><div class="dropdown-body-left">Room '+x+'</div><ul class="ul-right"><li><a href="javascript:void(0);" class="active">1</a></li><li><a href="javascript:void(0);">2</a></li><li><a href="javascript:void(0);">3</a></li><li><a href="javascript:void(0);">4</a></li><li><a href="javascript:void(0);">5</a></li><li><a href="javascript:void(0);">6</a></li></ul><div class="clearfix"></div></div>');
+    $(".children .dropdown-body").append('<div class="grid-view"><div class="dropdown-body-left">Room '+x+'</div><ul class="ul-right"><li><a href="javascript:void(0);">1</a></li><li><a href="javascript:void(0);">2</a></li><li><a href="javascript:void(0);">3</a></li><li><a href="javascript:void(0);">4</a></li><li><a href="javascript:void(0);">5</a></li><li><a href="javascript:void(0);">6</a></li></ul><div class="clearfix"></div></div>');
+    adultsClick();
+    childrenClick();
+  }
+  $(".dropdown").hide();
+});
+
+
+
+//Adults click
+$(".adults").click(function(event){
+  event.stopPropagation();
+   $(this).find(".dropdown").toggle();
+   $(".children .dropdown").hide();
+});
+
+//Childrens click
+$(".children").click(function(event){
+  event.stopPropagation();
+   $(this).find(".dropdown").toggle();
+});
+
+
+function adultsClick(){
+  $(".adults .ul-right li a").click(function(){
+    var totalAdults = 0;
+    $(this).parents(".ul-right").find("a").removeClass("active");
+    $(this).addClass("active");
+
+    if(totalRooms > 1){
+      $(".adults .ul-right li a.active").each(function(){
+        totalAdults += parseInt($(this).text());
+        $(".adults .right-date").html(totalAdults);
+        $(".adults #totaladults").attr("value", totalAdults);
+      });
+    } else {
+      $(".adults .right-date").html($(this).text());
+      $(".adults #totaladults").attr("value", $(this).text());
+    }
+
+
+
+  });
+}
+adultsClick();
+
+
+function childrenClick(){
+  $(".children .ul-right li a").click(function(){
+    var totalChildren = 0;
+    $(this).parents(".ul-right").find("a").removeClass("active");
+    $(this).addClass("active");
+
+    if(totalRooms > 1){
+      $(".children .ul-right li a.active").each(function(){
+        totalChildren += parseInt($(this).text());
+        $(".children .right-date").html(totalChildren);
+        $(".children #totalchildren").attr("value", totalChildren);
+      });
+    } else{
+        $(".children .right-date").html($(this).text());
+        $(".children #totalchildren").attr("value", $(this).text());
+    }
+
+
+  });
+}
+childrenClick();
+
+
+
+$(".dropdown").on("click", function (event) {
+    event.stopPropagation();
+});
+
+
+$(document).on("click", function () {
+    $(".from, .to, .dropdown").hide();
+});
+
+</script>
